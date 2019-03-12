@@ -1,0 +1,12 @@
+
+<!-- ngif behövs egentligen inte här då RouteGuarden sköter denna kontroll åt mig -->
+<div *ngIf="loggedUser; else elseblock" class="wrapper">
+  <!-- skickar ner userList till users-list-componenten. -->
+  <app-users-list [users]="userList"></app-users-list>
+
+  <!-- addUser, som är outputen i edit-users är detsamma som onAddUser med Angulars magi "$event". Detsamma gäller removeUser. -->
+  <app-edit-users (addUser)="onAddUser($event)" (removeUser)="onRemoveUser($event)"></app-edit-users>
+</div>
+
+<!-- Elseblock hade visats om loggedUser inte var true -->
+<ng-template #elseblock> You must log in to see this content!</ng-template>

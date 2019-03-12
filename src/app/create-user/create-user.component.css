@@ -1,0 +1,8 @@
+.loginForm {
+  width: 500px;
+  min-height: 220px;
+  background-color: #eee;
+  margin: 2em;
+  padding: 1em;
+  border-radius: 5px;
+}

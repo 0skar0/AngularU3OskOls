@@ -1,0 +1,6 @@
+
+<!-- Angulars "*ngFor" loopar genom users och skriver ut alla users i {{user}} -->
+<li *ngFor="let user of users" class="list-group-item m-1" [style.color]="textColor ? 'black' : 'blue'" [routerLink]="['/single-user', user]">
+  {{user}}
+
+</li>

@@ -1,0 +1,11 @@
+.leftside {
+  width: 300px;
+  margin: 1rem;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+}

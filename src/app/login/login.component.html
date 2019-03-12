@@ -1,0 +1,58 @@
+<!-- Om man inte är inloggad visas detta -->
+<div class="loginForm" *ngIf="!userName">
+<form (ngSubmit)="onSubmit()" userForm="ngForm">
+  <div class="form-group">
+    <label for="email">Email</label>
+      <input type="email"
+        id="email"
+        [(ngModel)]="user.email"
+        class="form-control"
+        name="email"
+        #email="ngModel"
+        required
+        email>
+      <div class="alert alert-danger mt-1" [hidden]="email.valid || email.untouched">
+        Type an correct email address!
+      </div>
+    <label for="password" class="mt-2">Password</label>
+      <input type="password"
+        [(ngModel)]="user.password"
+        class="form-control"
+        name="password"
+        required
+        minlength="10">
+    <button type="submit" class="btn btn-success mt-2" >Login</button>
+    <button type="button" class="btn btn-primary ml-2 mt-2" routerLink="/createuser">Create a new user</button>
+  </div>
+</form>
+</div>
+
+<div class="loginForm" *ngIf="userName">
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">You're already signed in.</label>
+    </div>
+
+    <button type="button" class="btn btn-primary"  (click)="logout()" routerLink="/">Logout</button>
+
+</div>
+<!-- <div class="loginForm" *ngIf="!userName else showLogOut">
+    <div class="form-group">
+      <label for="exampleInputPassword1">Please login</label>
+      <input type="text" class="form-control" [(ngModel)]="loggedUser" placeholder="Username">
+    </div>
+    <button type="button" class="btn btn-primary" routerLink="/dashboard" (click)="checkUser()">Login</button>
+</div> -->
+
+<!-- Om man är inloggad visas detta -->
+<!-- <ng-template #showLogOut>
+<div class="loginForm" >
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">You're already signed in.</label>
+    </div>
+
+    <button type="button" class="btn btn-primary"  (click)="logout()" routerLink="/">Logout</button>
+
+</div>
+</ng-template> -->

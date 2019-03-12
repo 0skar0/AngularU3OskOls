@@ -1,0 +1,12 @@
+.rightside {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+}
+
+.addAndDel {
+  display: flex;
+}
