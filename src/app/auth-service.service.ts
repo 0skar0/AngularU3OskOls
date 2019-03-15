@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AdminFull } from './models/admin-full.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
 
-// Sköter logik för ut- och inloggning
+// Sköter logik för ut- och inloggning och hanterar användare
 export class AuthServiceService {
 
+  public displayModalOrNot: boolean;
   public loggedUser: string;
   public admins: AdminFull[] = [{
     firstName: 'Tord',
@@ -22,7 +22,7 @@ export class AuthServiceService {
     password: 'varantvftw1'
   }];
 
-  constructor() {}
+  constructor() { }
 
   // tilldelar loggedUser ett värde från login-component i localStorage
   public login(name: string): void {

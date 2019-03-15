@@ -1,3 +1,11 @@
-<p class="m-3" style="text-align: center">
-  User: {{user}}
-</p>
+<div *ngIf="user" class="card m-2" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{user.username}}</h5>
+    <p class="card-text text-secondary">{{user.name}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Street: {{user.address.street}}</li>
+    <li class="list-group-item">Zipcode: {{user.address.zipcode}}</li>
+    <li class="list-group-item">City: {{user.address.city}}</li>
+  </ul>
+</div>

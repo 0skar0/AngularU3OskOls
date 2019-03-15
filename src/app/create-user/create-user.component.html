@@ -1,55 +1,33 @@
-
-<div class="loginForm" >
-<form (ngSubmit)="onSubmit()" userForm="ngForm">
-  <div class="form-group">
-    <label for="email">Email</label>
-      <input type="email"
-        id="email"
-        [(ngModel)]="createUser.email"
-        class="form-control"
-        name="email"
-        #email="ngModel"
-        required
-        email>
+<div class="loginForm">
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="createUser.email" class="form-control" name="email" #email="ngModel" required email>
       <div class="alert alert-danger mt-1" [hidden]="email.valid || email.untouched">
         Type an correct email address!
       </div>
 
       <label for="firstName">Firstname</label>
-        <input type="text"
-          id="firstName"
-          [(ngModel)]="createUser.firstName"
-          class="form-control"
-          name="firstName"
-          #firstName="ngModel"
-          required
-          >
-        <div class="alert alert-danger mt-1" [hidden]="firstName.valid || firstName.untouched">
-          Firstname must be submitted!
-        </div>
+      <input type="text" id="firstName" [(ngModel)]="createUser.firstName" class="form-control" name="firstName" #firstName="ngModel" required>
+      <div class="alert alert-danger mt-1" [hidden]="firstName.valid || firstName.untouched">
+        Firstname must be submitted!
+      </div>
 
-        <label for="lastName">Lastname</label>
-          <input type="text"
-            id="lastName"
-            [(ngModel)]="createUser.lastName"
-            class="form-control"
-            name="lastName"
-            #lastName="ngModel"
-            required
-            >
-          <div class="alert alert-danger mt-1" [hidden]="lastName.valid || lastName.untouched">
-            Lastname must be submitted!
-          </div>
+      <label for="lastName">Lastname</label>
+      <input type="text" id="lastName" [(ngModel)]="createUser.lastName" class="form-control" name="lastName" #lastName="ngModel" required>
+      <div class="alert alert-danger mt-1" [hidden]="lastName.valid || lastName.untouched">
+        Lastname must be submitted!
+      </div>
 
-    <label for="password" class="mt-2">Password</label>
-      <input type="password"
-        [(ngModel)]="createUser.password"
-        class="form-control"
-        name="password"
-        required
-        minlength="10">
-    <button type="submit" class="btn btn-success mt-2">Create User</button>
-    <button type="button" class="btn btn-primary ml-2 mt-2" routerLink="/login">Login with existing user</button>
-  </div>
-</form>
+      <label for="password" class="mt-2">Password</label>
+      <input type="password" [(ngModel)]="createUser.password" class="form-control" name="password" required minlength="10" #password="ngModel">
+
+      <div class="alert alert-danger mt-1" [hidden]="password.valid || password.untouched">
+        Password must contain at least 10 characters!
+      </div>
+
+      <button type="submit" class="btn btn-success mt-2" [disabled]="!userForm.form.valid">Create User</button>
+      <button type="button" class="btn btn-primary ml-2 mt-2" routerLink="/login">Login with existing user</button>
+    </div>
+  </form>
 </div>

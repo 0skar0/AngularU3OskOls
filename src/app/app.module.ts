@@ -14,6 +14,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { ModalComponent } from './modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { CreateUserComponent } from './create-user/create-user.component';
     SingleUserComponent,
     NavBarComponent,
     PageNotFoundComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
