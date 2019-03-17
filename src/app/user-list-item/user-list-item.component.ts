@@ -7,28 +7,30 @@ import { UsersService } from '../users.service';
   styleUrls: ['./user-list-item.component.css']
 })
 
-// tar emot inputs från users-list
+// prenumerar på Observables i usersService för att skriva ut users i min userlist.
 export class UserListItemComponent  {
 
-  @Input() users: string[];
   @Input() textColor: boolean;
   jsonUsers: string[] = [];
+  failedToLoadJsonUsers: string;
 
+  //Tar emot svaren på min prenumeration från usersService.
   constructor(private usersService: UsersService) {
     this.usersService.getUsers().subscribe(
       (response) => this.pushUsers(response),
-      (error) => console.log('error', error)
-
+      (error) => this.failFunction(error)
     );
   }
 
-  //Loopar genom min Observable (?) från jsonplaceholder och pushar in användarnamnen i min jsonUsers-egenskap.
+  // Tar emot error.status om innehållet från jsonplaceholder inte kan hämtas av någon anledning.
+  failFunction(error: any): void {
+    this.failedToLoadJsonUsers = error.status;
+  }
+
+  //Loopar genom min Observable från jsonplaceholder och pushar in användarnamnen i min jsonUsers-egenskap.
   pushUsers(resp: any): void {
     for(let i = 0; i < resp.length; i++) {
       this.jsonUsers.push(resp[i]);
-
     }
-
-
   }
 }

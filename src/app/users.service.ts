@@ -16,7 +16,7 @@ export class UsersService {
   public getUsers(): Observable<any> {
     return this.http.get(this.url.users);
   }
-  //hämtar en user som en Observable med ett id. 
+  //hämtar en user som en Observable med ett id.
   public getUser(id: string): Observable<any> {
     return this.http.get(this.url.users + "/" + id);
   }

@@ -9,3 +9,7 @@
     <li class="list-group-item">City: {{user.address.city}}</li>
   </ul>
 </div>
+
+<div *ngIf="failedToLoadUsers" class="alert alert-danger">
+  {{failedToLoadUsers}}
+</div>

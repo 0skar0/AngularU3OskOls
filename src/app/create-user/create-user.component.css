@@ -6,3 +6,7 @@
   padding: 1em;
   border-radius: 5px;
 }
+
+.ng-invalid:not(Form).ng-touched:not(Form) {
+  border: 1px solid red;
+}

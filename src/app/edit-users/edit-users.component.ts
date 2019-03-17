@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-edit-users',
@@ -7,14 +7,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 
 //Skickar outputs till sin förälder.
-export class EditUsersComponent implements OnInit {
+export class EditUsersComponent  {
   userInput:string = '';
   @Output() addUser = new EventEmitter<string>();
   @Output() removeUser = new EventEmitter<string>();
   constructor() { }
 
-  ngOnInit() {
-  }
   //skickar ett event (usern) till sin förälder
   addOneUser() {
     this.addUser.emit(this.userInput);

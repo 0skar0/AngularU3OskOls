@@ -13,7 +13,7 @@ export class ModalComponent implements DoCheck {
 
   constructor(private authService: AuthServiceService) { }
   //DoCheck kollar värdet på displayModalOrNot i authService. Om det är sant visas modalen.
-  public ngDoCheck() {
+  public ngDoCheck(): void {
     let modal = document.getElementById('myModal');
     if (this.authService.displayModalOrNot === true) {
       modal.style.display = 'flex';
@@ -21,7 +21,7 @@ export class ModalComponent implements DoCheck {
   }
 
   //när man klickar på krysset stängs modalen och displayModalOrNot blir falsk.
-  public closeFunc() {
+  public closeFunc(): void {
     let modal = document.getElementById('myModal');
     modal.style.display = 'none';
     this.authService.displayModalOrNot = false;

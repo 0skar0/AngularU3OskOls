@@ -4,3 +4,7 @@
   {{user.name}}
 
 </li>
+
+<li *ngIf="failedToLoadJsonUsers" class="list-group-item m-1 text-danger">
+  Failed to load content. Status: {{failedToLoadJsonUsers}}. Not found.
+</li>

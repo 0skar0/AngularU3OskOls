@@ -1,3 +1,5 @@
+// En ritning för att registrera en ny användare.
+
 export class AdminFull {
   constructor(
     public firstName: string,

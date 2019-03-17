@@ -14,22 +14,20 @@ export class SingleUserComponent  {
 
   userId: string;
   user:Object;
+  failedToLoadUsers: string = '';
 
 
   // Ger oss tillträde till params parametrar via subscribe.
   constructor(private route: ActivatedRoute, private userService: UsersService) {
-
+    //tilldelar userId  ett id
     this.route.params.subscribe(params => {
       this.userId = params.id;
     })
-
+    //hämtar responset från jsonplaceholder. även ett error om hämtningen misslyckas.
     this.userService.getUser(this.userId).subscribe(
-      (response) => this.user = response
+      (response) => this.user = response,
+      (error) => this.failedToLoadUsers = error.message
     )
-
-
   }
-
-
 
 }

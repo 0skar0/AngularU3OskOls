@@ -19,8 +19,13 @@
         [(ngModel)]="user.password"
         class="form-control"
         name="password"
+        minlength="10"
+        #password="ngModel"
         required
         >
+        <div class="alert alert-danger mt-1" [hidden]="password.valid ||  password.untouched">
+          You're password must contain at least 10 characters!
+        </div>
 
     <button type="submit" class="btn btn-success mt-2" [disabled]="!userForm.form.valid">Login</button>
     <button type="button" class="btn btn-primary ml-2 mt-2" routerLink="/createuser">Create a new user</button>
@@ -28,39 +33,12 @@
 </form>
 </div>
 
-<app-modal *ngIf="modalOrNot" [inputString]="inputString"></app-modal>
+<app-modal *ngIf="modalOrNot" [inputString]="modalInputString"></app-modal>
 
 <div class="loginForm" *ngIf="userName">
-
   <div class="form-group">
     <label for="exampleInputPassword1">You're already signed in.</label>
   </div>
 
   <button type="button" class="btn btn-primary" (click)="logout()" routerLink="/">Logout</button>
-
 </div>
-
-
-
-
-
-<!-- <div class="loginForm" *ngIf="!userName else showLogOut">
-    <div class="form-group">
-      <label for="exampleInputPassword1">Please login</label>
-      <input type="text" class="form-control" [(ngModel)]="loggedUser" placeholder="Username">
-    </div>
-    <button type="button" class="btn btn-primary" routerLink="/dashboard" (click)="checkUser()">Login</button>
-</div> -->
-
-<!-- Om man är inloggad visas detta -->
-<!-- <ng-template #showLogOut>
-<div class="loginForm" >
-
-    <div class="form-group">
-      <label for="exampleInputPassword1">You're already signed in.</label>
-    </div>
-
-    <button type="button" class="btn btn-primary"  (click)="logout()" routerLink="/">Logout</button>
-
-</div>
-</ng-template> -->
