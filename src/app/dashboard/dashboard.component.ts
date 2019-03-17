@@ -9,7 +9,7 @@ import { AuthServiceService } from '../auth-service.service'
 
 //Sparar en egenskap som en array med alla users som skickas in.
 export class DashboardComponent {
-  userList: string[] = ["John Deere"];
+
   loggedUser: string;
 
   // hämtar värdet av loggedUser i authService
@@ -18,12 +18,12 @@ export class DashboardComponent {
   }
 
   //skickar in en user från input in i userList
-  onAddUser(user:string) {
+  onAddUser(user:string): void {
     this.userList.push(user);
   }
 
   //tar bort den sista usern i userList
-  onRemoveUser() {
+  onRemoveUser(): void {
     this.userList.pop();
   }
 

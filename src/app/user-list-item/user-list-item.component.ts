@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { UsersService } from '../users.service';
 
+// prenumerar på Observables i usersService för att skriva ut users i min userlist.
 @Component({
   selector: 'app-user-list-item',
   templateUrl: './user-list-item.component.html',
   styleUrls: ['./user-list-item.component.css']
 })
 
-// prenumerar på Observables i usersService för att skriva ut users i min userlist.
 export class UserListItemComponent  {
 
   @Input() textColor: boolean;

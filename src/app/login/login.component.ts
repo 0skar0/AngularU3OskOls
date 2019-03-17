@@ -3,14 +3,13 @@ import { AuthServiceService } from '../auth-service.service';
 import { AdminLogin } from '../models/admin-login.model';
 import { Router } from '@angular/router';
 
-
+// utför kontroller vid in- och utloggninsförsök.
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 
-// utför kontroller vid in- och utloggninsförsök.
 export class LoginComponent {
 
   user: AdminLogin = new AdminLogin('', '');
