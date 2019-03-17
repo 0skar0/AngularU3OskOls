@@ -17,14 +17,6 @@ export class DashboardComponent {
     this.loggedUser = authService.checkIfLoggedIn();
   }
 
-  //skickar in en user från input in i userList
-  onAddUser(user:string): void {
-    this.userList.push(user);
-  }
-
-  //tar bort den sista usern i userList
-  onRemoveUser(): void {
-    this.userList.pop();
-  }
+  
 
 }
