@@ -17,6 +17,6 @@ export class DashboardComponent {
     this.loggedUser = authService.checkIfLoggedIn();
   }
 
-  
+
 
 }
